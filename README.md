@@ -24,6 +24,8 @@ Set your key in `.env`:
 ```dotenv
 MAILCORE_API_KEY=your-api-key
 # MAILCORE_BASE_URI=https://api.example.com   # optional
+# MAILCORE_TIMEOUT=30          # optional, request timeout in seconds (0 disables)
+# MAILCORE_CONNECT_TIMEOUT=10  # optional, connect timeout in seconds (0 disables)
 ```
 
 To customise more, publish the config:

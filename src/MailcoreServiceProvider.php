@@ -15,10 +15,15 @@ final class MailcoreServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/mailcore.php', 'mailcore');
 
         $this->app->singleton(MailcoreClient::class, static function (Application $app): MailcoreClient {
-            /** @var array{api_key: string, base_uri: string} $config */
+            /** @var array{api_key: string, base_uri: string, timeout: int|float|string, connect_timeout: int|float|string} $config */
             $config = $app['config']['mailcore'];
 
-            return new MailcoreClient($config['api_key'], $config['base_uri']);
+            return new MailcoreClient(
+                $config['api_key'],
+                $config['base_uri'],
+                timeout: (float) $config['timeout'],
+                connectTimeout: (float) $config['connect_timeout'],
+            );
         });
 
         $this->app->alias(MailcoreClient::class, 'mailcore');
