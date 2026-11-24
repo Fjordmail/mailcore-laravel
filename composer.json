@@ -9,7 +9,7 @@
     "require": {
         "php": ">=8.4",
         "inboxcom/mailcore-php": "^0.1",
-        "illuminate/support": "^13.43.0"
+        "illuminate/support": "^13.44.1"
     },
     "autoload": {
         "psr-4": {
